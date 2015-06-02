@@ -1,6 +1,6 @@
 module AutoTimezone
   module Controller
-    ZONES = ['US/Eastern', 'US/Central', 'US/Mountain', 'US/Pacific'].map { |z| Time.find_zone(z) }
+    PREFERRED_ZONES = AutoTimezone.config.preferred_timezones.map { |z| Time.find_zone(z) }
 
     def self.included(base)
       base.prepend_around_filter :use_auto_timezone
@@ -21,7 +21,7 @@ module AutoTimezone
     end
 
     def time_zone_name_from_offset(offset)
-      (ZONES.find { |z| z.utc_offset == offset } || Time.find_zone(offset)).try(:name)
+      (PREFERRED_ZONES.find { |z| z.utc_offset == offset } || Time.find_zone(offset)).try(:name)
     end
   end
 end
