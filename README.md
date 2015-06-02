@@ -3,7 +3,7 @@
 Automatically infer and set `Time.zone` with each request. The available (and configurable)
 strategies include:
 
-* Using the timezone offset provided by the browser.
+* Using the timezone offset provided by the browser. **[Now supports Daylight Savings Time]**
 * Using the [jsTimezoneDetect](https://bitbucket.org/pellepim/jstimezonedetect) javascript library.
 * Using a value stored on `current_user` (or available through any such helper method)
 
