@@ -4,8 +4,7 @@ Automatically infer and set `Time.zone` with each request. The available (and co
 strategies include:
 
 * Using the timezone offset provided by the browser. **[Now supports Daylight Savings Time]**
-* Using the [jsTimezoneDetect](https://bitbucket.org/pellepim/jstimezonedetect) javascript library.
-* Using a value stored on `current_user` (or available through any such helper method)
+* Using a value stored on `current_user` (or anything accessible in the context of the controller)
 
 ## Installation
 
@@ -34,13 +33,6 @@ To install the `auto_timezone.rb` configuration initializer, execute:
 
     $ rails g auto_timezone:install
 
-To use the [jsTimezoneDetect](https://bitbucket.org/pellepim/jstimezonedetect) strategy, simply
-include it before your `application.js`, like so:
-
-```ruby
-javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/jstimezonedetect/1.0.4/jstz.min.js'
-```
-
 Check out the generated `auto_timezone.rb` for more configuration settings.
 
 ## Limitations
@@ -56,7 +48,8 @@ config.time_zone = 'Eastern Time (US & Canada)'
 ## To Do
 
 * Implement `jsTimezoneDetect` strategy
-* Implement `current_user` strategy
+* Implement tests
+* Infer or approximate timezone during initial web request (somehow...)
 
 ## Contributing
 
