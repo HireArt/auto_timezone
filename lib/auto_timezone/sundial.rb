@@ -11,7 +11,7 @@ module AutoTimezone
     end
 
     def self.preferred_zones
-      @preferred_zones ||= config.preferred_timezones.map { |z| Time.find_zone(z) }
+      @preferred_zones ||= AutoTimezone.config.preferred_timezones.map { |z| Time.find_zone(z) }
     end
 
   private
