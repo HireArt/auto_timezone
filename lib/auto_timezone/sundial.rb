@@ -17,7 +17,7 @@ module AutoTimezone
   private
 
     def timezone_name
-      cookies[:auto_timezone] ||= timezone_from_config_block
+      cookies[:auto_timezone] = timezone_from_config_block
       cookies[:auto_timezone] ||= timezone_from_offset
     end
 
